@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '@fontsource/rajdhani/400.css';
+@import '@fontsource/rajdhani/500.css';
+@import '@fontsource/rajdhani/600.css';
+@import '@fontsource/rajdhani/700.css';
+
+@layer base {
+  :root {
+    /* Command Center Dark Theme */
+    --background: 220 20% 6%;
+    --foreground: 45 100% 96%;
+
+    --card: 220 20% 8%;
+    --card-foreground: 45 100% 96%;
+
+    --popover: 220 20% 10%;
+    --popover-foreground: 45 100% 96%;
+
+    /* Electric Amber - Primary action color */
+    --primary: 38 100% 50%;
+    --primary-foreground: 220 20% 6%;
+
+    /* Muted Steel */
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 45 30% 80%;
+
+    --muted: 220 15% 12%;
+    --muted-foreground: 220 10% 50%;
+
+    /* Tactical Green for completed/success */
+    --accent: 142 70% 45%;
+    --accent-foreground: 220 20% 6%;
+
+    /* Alert Red for critical/consequences */
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 45 100% 96%;
+
+    --border: 220 15% 18%;
+    --input: 220 15% 15%;
+    --ring: 38 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom colors for importance levels */
+    --critical: 0 85% 55%;
+    --high: 38 100% 50%;
+    --medium: 220 10% 45%;
+
+    /* Glow effects */
+    --glow-amber: 0 0 30px hsl(38 100% 50% / 0.4);
+    --glow-red: 0 0 30px hsl(0 85% 55% / 0.4);
+    --glow-green: 0 0 30px hsl(142 70% 45% / 0.4);
+
+    /* Sidebar - not used but keeping for compatibility */
+    --sidebar-background: 220 20% 8%;
+    --sidebar-foreground: 45 100% 96%;
+    --sidebar-primary: 38 100% 50%;
+    --sidebar-primary-foreground: 220 20% 6%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 45 100% 96%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 38 100% 50%;
+  }
+
+  .dark {
+    --background: 220 20% 6%;
+    --foreground: 45 100% 96%;
+    --card: 220 20% 8%;
+    --card-foreground: 45 100% 96%;
+    --popover: 220 20% 10%;
+    --popover-foreground: 45 100% 96%;
+    --primary: 38 100% 50%;
+    --primary-foreground: 220 20% 6%;
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 45 30% 80%;
+    --muted: 220 15% 12%;
+    --muted-foreground: 220 10% 50%;
+    --accent: 142 70% 45%;
+    --accent-foreground: 220 20% 6%;
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 45 100% 96%;
+    --border: 220 15% 18%;
+    --input: 220 15% 15%;
+    --ring: 38 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Rajdhani', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient-amber {
+    @apply bg-gradient-to-r from-amber-400 via-orange-500 to-amber-600 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-critical {
+    @apply bg-gradient-to-r from-red-400 via-rose-500 to-red-600 bg-clip-text text-transparent;
+  }
+
+  .glass-panel {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+  }
+
+  .glow-amber {
+    box-shadow: var(--glow-amber);
+  }
+
+  .glow-red {
+    box-shadow: var(--glow-red);
+  }
+
+  .glow-green {
+    box-shadow: var(--glow-green);
+  }
+
+  .pulse-amber {
+    animation: pulse-amber 2s infinite;
+  }
+
+  .pulse-red {
+    animation: pulse-red 1.5s infinite;
+  }
+
+  @keyframes pulse-amber {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(38 100% 50% / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(38 100% 50% / 0.6);
+    }
+  }
+
+  @keyframes pulse-red {
+    0%, 100% {
+      box-shadow: 0 0 15px hsl(0 85% 55% / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 30px hsl(0 85% 55% / 0.6);
+    }
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
